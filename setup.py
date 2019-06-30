@@ -9,7 +9,7 @@ setup(
     url="https://github.com/alanhussey/golden-hour",
     packages=find_packages(),
     entry_points={
-        "console_scripts": ["goldenhour = main:main"]
+        "console_scripts": ["goldenhour = goldenhour.main:main"]
     },
     install_requires=[
         "astral==1.3.4",
