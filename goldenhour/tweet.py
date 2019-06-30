@@ -13,7 +13,7 @@ logger = logging.getLogger()
 def verify_credentials(credentials):
     api = twitter.Api(**credentials)
 
-    assert api.VerifyCredentials() is not None
+    return api.VerifyCredentials() is not None
 
 TWITTER_CONFIG_SCHEMA = schema.And(
     {
