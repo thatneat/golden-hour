@@ -1,0 +1,15 @@
+location:
+  latitude: 48.769768
+  longitude: -122.485886
+  timezone: 'US/Pacific'
+  elevation: 30
+# Alternatively, if your location is recognized by Astral, just provide the location name instead.
+# For a list of cities recognized, see: https://astral.readthedocs.io/en/latest/#cities
+#location: Seattle
+# Set up your Twitter app at https://apps.twitter.com/
+#twitter:
+#  consumer_key: YOUR CONSUMER KEY HERE
+#  consumer_secret: YOUR CONSUMER SECRET HERE
+#  access_token_key: YOUR ACCESS TOKEN KEY HERE
+#  access_token_secret: YOUR ACCESS TOKEN SECRET HERE
+#darksky_key: YOUR DARKSKY KEY HERE
