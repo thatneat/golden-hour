@@ -60,7 +60,7 @@ def main():
     parser.add_argument('--credentials-file', default='twitter_secrets.yaml')
     args = parser.parse_args()
 
-    credentials = load_credentials_from_file(args.credentials_file, args.nested)
+    credentials = load_credentials_from_file(args.credentials_file, args.credentials_nested)
     post_update(credentials, args.text, args.media)
 
 
