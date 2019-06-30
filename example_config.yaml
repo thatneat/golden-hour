@@ -1,11 +1,12 @@
-location:
-  latitude: 48.769768
-  longitude: -122.485886
-  timezone: 'US/Pacific'
-  elevation: 30
-# Alternatively, if your location is recognized by Astral, just provide the location name instead.
+# If your location is recognized by Astral, just provide the location name
 # For a list of cities recognized, see: https://astral.readthedocs.io/en/latest/#cities
-#location: Seattle
+location: Seattle
+# Alternatively, configure it like so:
+#location:
+#  latitude: 48.769768
+#  longitude: -122.485886
+#  timezone: 'US/Pacific'
+#  elevation: 30
 # Set up your Twitter app at https://apps.twitter.com/
 #twitter:
 #  consumer_key: YOUR CONSUMER KEY HERE
