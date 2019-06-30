@@ -10,7 +10,8 @@ import pytz
 logger = logging.getLogger()
 
 
-def get_today_sunset_time(location, today):
+def get_today_sunset_time(location):
+    today = datetime.datetime.now(location.timezone).date()
     return location.sun(today)['sunset']
 
 
@@ -20,9 +21,10 @@ def get_seconds_until(earlier_time, later_time):
 
 
 def wait_for_sunset(location, minutes_before=0):
-    now = datetime.datetime.now(location.timezone)
-    sunset_time = get_today_sunset_time(location, now.date())
+    sunset_time = get_today_sunset_time(location)
     start_time = sunset_time - datetime.timedelta(minutes=minutes_before)
+
+    now = datetime.datetime.now(location.timezone)
     if start_time < now:
         logger.error('ERROR: too late to start for today\'s sunset')
         exit()
