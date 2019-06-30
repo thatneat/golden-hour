@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 import argparse
 import logging
-from twitter import Api
+from twitter
 import yaml
 
 import schema
@@ -11,7 +11,7 @@ import schema
 logger = logging.getLogger()
 
 def verify_credentials(credentials):
-    api = Api(**credentials)
+    api = twitter.Api(**credentials)
 
     assert api.VerifyCredentials() is not None
 
@@ -30,7 +30,7 @@ def post_update(credentials, text, media=None):
     TWITTER_CONFIG_SCHEMA.validate(credentials)
 
     logger.info('posting to twitter (status_text: {}, media: {})'.format(text, media))
-    api = Api(**credentials)
+    api = twitter.Api(**credentials)
 
     media_id = None
     if media:

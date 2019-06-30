@@ -8,7 +8,7 @@ import os
 import random
 import sys
 
-from goldenhour import configuration, location, sunset, timelapse, twitter, weather
+from goldenhour import configuration, sunset, timelapse, tweet, weather
 from goldenhour.location import get_location
 
 logger = logging.getLogger()
@@ -99,7 +99,7 @@ def main():
     if args.post_to_twitter:
         twitter_credentials = config['twitter']
         logger.info('verifying twitter credentials')
-        twitter.TWITTER_CONFIG_SCHEMA.validate(twitter_credentials)
+        tweet.TWITTER_CONFIG_SCHEMA.validate(twitter_credentials)
 
         # check the expected length of the video to make sure it's within twitter's rules
         video_duration = calculate_timelapse_duration(args.duration, args.interval)
@@ -132,7 +132,7 @@ def main():
     logger.info(status_text)
 
     if args.post_to_twitter and not args.skip_timelapse:
-        twitter.post_update(
+        tweet.post_update(
             configuration['twitter'],
             status_text,
             media=timelapse_filename
