@@ -133,7 +133,7 @@ def main():
 
     if args.post_to_twitter and not args.skip_timelapse:
         tweet.post_update(
-            configuration['twitter'],
+            config['twitter'],
             status_text,
             media=timelapse_filename
         )
