@@ -112,7 +112,7 @@ def main():
             exit(2)
 
     if args.start_before_sunset is not None:
-        sunset.wait_for_sunset(args.start_before_sunset)
+        sunset.wait_for_sunset(location, args.start_before_sunset)
 
     if not args.skip_timelapse:
         timelapse.create_timelapse(args.duration, args.interval, timelapse_filename)
