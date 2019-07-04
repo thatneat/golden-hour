@@ -28,7 +28,7 @@ FFmpeg is used to convert the sequence of photos captured by the camera into a v
 #### Configuration
 
 Configuration data - Twitter and Dark Sky credentials, and location information, will all live in a `.yaml` file.
-You can put this wherever you want but we recommend `~/.golden-hour/config.yaml`. 
+You can put this wherever you want but we recommend `~/.config/golden-hour.yaml`. 
 Check out `example_config.yaml` for the expected format of the file.
 
 ##### Location
@@ -64,12 +64,16 @@ Once you have everything set up, set up a cron job to run `golden-hour` at the s
 
 Example crontab entry (Insert this into your user's crontab with `crontab -e`):
 ```cron
-0 15 * * * PATH=/usr/bin:/bin:~/.local/bin/ golden-hour --config-file ~/.golden-hour/config.yaml --start-before-sunset 60  --post-to-twitter > ~pi/goldenhour.log
+0 15 * * *  golden-hour --config-file ~/.config/golden-hour.yaml --start-before-sunset 60  --post-to-twitter >> ~/goldenhour-error.log 2>&1
 ```
-For another example, which uses a specially crafted `.sh` file, check out `https://gist.github.com/alanhussey/0f5ccbd1f28e1c7d2c851bff5c496889` . Note that this may be out of date.
+For another example, which uses a specially crafted `.sh` file and a virtualenv, check out [alanhussey's setup](`https://gist.github.com/alanhussey/0f5ccbd1f28e1c7d2c851bff5c496889`) . Note that this may be out of date from the latest version of code in this repo.
+
+##### Where are the logs?
+
+When it is run by `cron`, by default `golden-hour` will send logs to syslog. You can monitor them with `tail -F /var/log/syslog`.
 
 Gotchas:
 
-- depending on how you installed `golden-hour`, you will need to make sure that it's on your `PATH`
+- depending on how you installed `golden-hour`, you will need to make sure that it's on your `PATH`. This may mean adding `PATH=~/.local/bin:$PATH` to your crontab and your `~/.bash_profile`, or activating a virtualenv.
 - `cron` runs in a different environment from your normal shell. In my case, it did not have access to `ffmpeg`, because I had installed it to `/usr/local/bin`, but the `$PATH` only had `/bin` and `/usr/bin`.
 - Your Pi may not be configured to your local timezone. Run `date` to see what time it is for your Pi, and set the cron job to run at an appropriate translated time. I set mine to run at 2300, which is 3pm local time.
