@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="golden_hour",
-    version="0.0.1",
+    version="1.0.0",
     author="Alan Hussey",
     description="Record a sunset timelapse and post it to Twitter with a weather report",
     url="https://github.com/alanhussey/golden-hour",
