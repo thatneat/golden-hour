@@ -1,7 +1,7 @@
 import schema
 import yaml
 
-from goldenhour import tweet, location
+from golden_hour import tweet, location
 
 
 GOLDENHOUR_CONFIGURATION_SCHEMA = schema.Schema({

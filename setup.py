@@ -10,8 +10,8 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "golden-hour = golden-hour.main:main",
-            "golden-hour-tweet = golden-hour.tweet:main"
+            "golden-hour=golden_hour.main:main",
+            "golden-hour-tweet=golden_hour.tweet:main"
         ]
     },
     install_requires=[

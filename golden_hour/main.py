@@ -8,8 +8,8 @@ import os
 import random
 import sys
 
-from goldenhour import configuration, sunset, timelapse, tweet, weather
-from goldenhour.location import get_location
+from golden_hour import configuration, sunset, timelapse, tweet, weather
+from golden_hour.location import get_location
 
 logger = logging.getLogger()
 
