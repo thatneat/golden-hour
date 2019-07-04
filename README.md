@@ -74,6 +74,6 @@ When it is run by `cron`, by default `golden-hour` will send logs to syslog. You
 
 Gotchas:
 
-- depending on how you installed `golden-hour`, you will need to make sure that it's on your `PATH`. This may mean adding `PATH=~/.local/bin:$PATH` to your crontab and your `~/.bash_profile`, or activating a virtualenv.
+- depending on how you installed `golden-hour`, you will need to make sure that it's on your `PATH`. This may mean adding something like `PATH=~/.local/bin:/usr/local/bin:$PATH` to your crontab and your `~/.bash_profile`, or activating a virtualenv.
 - `cron` runs in a different environment from your normal shell. In my case, it did not have access to `ffmpeg`, because I had installed it to `/usr/local/bin`, but the `$PATH` only had `/bin` and `/usr/bin`.
 - Your Pi may not be configured to your local timezone. Run `date` to see what time it is for your Pi, and set the cron job to run at an appropriate translated time. I set mine to run at 2300, which is 3pm local time.
