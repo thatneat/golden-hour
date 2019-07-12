@@ -54,8 +54,9 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--config-file',
-        required=True,
-        help='configuration file where to find API keys and location information'
+        default=os.path.expanduser('~/.config/golden-hour.yaml'),
+        help='configuration file where to find API keys and location information. '
+             'Defaults to ~/.config/golden-hour.yaml'
     )
     parser.add_argument('--duration',
         metavar='seconds',

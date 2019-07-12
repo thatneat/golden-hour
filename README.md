@@ -64,7 +64,7 @@ Once you have everything set up, set up a cron job to run `golden-hour` at the s
 
 Example crontab entry (Insert this into your user's crontab with `crontab -e`):
 ```cron
-0 15 * * *  golden-hour --config-file ~/.config/golden-hour.yaml --start-before-sunset 60  --post-to-twitter >> ~/goldenhour-error.log 2>&1
+0 15 * * *  golden-hour --start-before-sunset 60  --post-to-twitter >> ~/goldenhour-error.log 2>&1
 ```
 For another example, which uses a specially crafted `.sh` file and a virtualenv, check out [alanhussey's setup](`https://gist.github.com/alanhussey/0f5ccbd1f28e1c7d2c851bff5c496889`) . Note that this may be out of date from the latest version of code in this repo.
 
