@@ -56,7 +56,7 @@ If you want the weather report, [get a Dark Sky API key][dark-sky-api].
 #### Running as a one-off
 
 Once it's installed, run `golden-hour --help` for usage instructions.
-If you get the error "`-bash: golden-hour: command not found`", you may need to restart your shell or check that 
+If you get the error "`-bash: golden-hour: command not found`", you may need to restart your shell or check that `golden-hour` is installed somewhere on your `PATH`. See "Gotchas" below.
 
 #### Running automatically
 
@@ -72,7 +72,7 @@ For another example, which uses a specially crafted `.sh` file and a virtualenv,
 
 When it is run by `cron`, by default `golden-hour` will send logs to syslog. You can monitor them with `tail -F /var/log/syslog`.
 
-Gotchas:
+##### Gotchas:
 
 - depending on how you installed `golden-hour`, you will need to make sure that it's on your `PATH`. This may mean adding something like `PATH=~/.local/bin:/usr/local/bin:$PATH` to your crontab and your `~/.bash_profile`, or activating a virtualenv.
 - `cron` runs in a different environment from your normal shell. In my case, it did not have access to `ffmpeg`, because I had installed it to `/usr/local/bin`, but the `$PATH` only had `/bin` and `/usr/bin`.

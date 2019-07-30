@@ -9,7 +9,6 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name="golden_hour",
     version="1.0.0",
-    author="Alan Hussey",
     description="Record a sunset timelapse and post it to Twitter with a weather report",
     long_description=long_description,
     long_description_content_type="text/markdown",
