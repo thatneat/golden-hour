@@ -60,7 +60,7 @@ If you get the error "`-bash: golden-hour: command not found`", you may need to 
 
 #### Running automatically
 
-Once you have everything set up, set up a cron job to run `golden-hour` at the same time every day. Make sure it runs at least one hour before the earliest sunset of the year.
+Once you have everything set up, set up a cron job to run `golden-hour` at the same time every day. Make sure it runs at least one hour before the earliest sunset of the year. You can find this by looking at the "Sun Graph" for your city at timeanddate.com (for example, [here is Seattle](https://www.timeanddate.com/sun/usa/seattle)).
 
 Example crontab entry (Insert this into your user's crontab with `crontab -e`):
 ```cron
