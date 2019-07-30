@@ -40,15 +40,16 @@ def post_update(credentials, text, media=None):
     api.PostUpdate(text, media=media_id)
 
 
-def load_credentials_from_file(filepath, nested=False):
+def load_credentials_from_file(filepath):
     ''' Load credentials from a YAML file.
-    If nested=True, expects the twitter secrets to be under a 'twitter' key in the file.
+    Supports files with twitter configuration parameters under a "twitter" key, or at the top level.
+    Expects the parameters to match the format of TWITTER_CONFIG_SCHEMA.
     '''
     with open(filepath) as twitter_conf_file:
         conf = yaml.load(twitter_conf_file.read())
 
     return TWITTER_CONFIG_SCHEMA.validate(
-        conf['twitter'] if nested else conf
+        conf['twitter'] if 'twitter' in conf else conf
     )
 
 
@@ -56,7 +57,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('text')
     parser.add_argument('--media', default=None)
-    parser.add_argument('--credentials-nested', action='store_true', default=False)
     parser.add_argument('--credentials-file', default='twitter_secrets.yaml')
     args = parser.parse_args()
 
