@@ -14,7 +14,7 @@ LOCATION_CONFIG_SCHEMA = schema.Schema(
             'latitude': schema.And(schema.Use(float), lambda lat: -90 < lat < 90),
             'longitude': schema.And(schema.Use(float), lambda lon: -180 < lon < 180),
             'timezone': str,
-            'elevation': schema.And(schema.Use(float), lambda elevation: elevation >= -LOWEST_ALLOWED_ELEVATION),
+            'elevation': schema.And(schema.Use(float), lambda elevation: elevation >= LOWEST_ALLOWED_ELEVATION),
         }
     )
 )
